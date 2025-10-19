@@ -9,11 +9,6 @@ let currColor = getComputedStyle(document.body).backgroundColor;
 function openMenu() {
     const currentDisplay = getComputedStyle(coolDiv).display;
     coolDiv.style.display = (currentDisplay === "none") ? "block" : "none";
-    if (currentDisplay === "none") {
-        bgBtn.textContent = "Cool right?";
-    } else {
-        bgBtn.textContent = "Click Me!";
-    }
 }
 
 uhOh.forEach(element => {
@@ -32,7 +27,14 @@ uhOh.forEach(element => {
 buttons.forEach(button => {
     const doesWhat = button.dataset.does;
     if (doesWhat === "bgBtn") {
-        button.addEventListener("click", openMenu);
+        button.addEventListener("click", (event) => {
+            if (button.textContent === "cool right?") {
+            button.textContent = "Click Me!";
+            } else if (button.textContent === "Click Me!") {
+            button.textContent = "cool right?";
+            }
+            openMenu();
+        });
     }
 });
 

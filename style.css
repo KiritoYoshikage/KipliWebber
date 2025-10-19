@@ -1,11 +1,23 @@
+:root {
+  --scale: 1;                    /* change this to 0.8, 1.2, ... to shrink/enlarge everything */
+  --base-uhOh: 56px;             /* base size for small color buttons */
+  --base-gap: 10px;
+  --base-border: 2px;
+  --container-max: 500px;
+  --btn-justify: center;         /* /center /flex-start /flex-end /space-between etc */
+  --btn-align: flex-start;
+}
+
 body{
-  margin: 0; 
+  margin: 5px; 
   background: #d9d9d9; 
   overflow: hidden; 
   display: block;
   justify-content: center;
   align-items: center;
   height: 30vh;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 #title, #coolered, #infos, h1 {
@@ -23,12 +35,15 @@ body{
 
 button {
   background-color: white;
-  border-radius: 6px; 
-  border-color:4px black; 
-  display: flex;
-  margin: 20px auto;
-  padding: 10px 20px;
-  font-size: 16px;
+  border-radius: calc(6px * var(--scale));
+  border-width: calc(var(--base-border) * var(--scale));
+  border-color: rgba(0,0,0,0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: calc(12x * var(--scale)) auto;
+  padding: calc(10px * var(--scale)) calc(20px * var(--scale));
+  font-size: calc(16px * var(--scale));
   cursor: pointer;
 }
 
@@ -41,12 +56,41 @@ button {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  max-width: min(100%, calc(700px * var(--scale)));
+  height: auto;
 }
 
 #coloredIDbuttons {
-  display: flex !important;
+  display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 10px;
-  justify-content: center;
+  gap: calc(var(--base-gap) * var(--scale));
+  justify-content: var(--btn-justify);
+  align-items: var(--btn-align);
+}
+.uhOh {
+  border-radius: calc(6px * var(--scale));
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+}
+
+#cooldiv {
+  display: none; 
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  width: min(95vw, calc(var(--container-max) * var(--scale)));
+  background-color: #d9d9d9;
+  border: calc(5px * var(--scale)) solid #3d382e;
+  border-radius: calc(10px * var(--scale));
+  padding: calc(10px * var(--scale));
+  box-sizing: border-box;
+}
+
+#infos {
+  width: 100%;
+  margin-bottom: calc(8px * var(--scale));
+  font-size: calc(1rem * var(--scale));
 }

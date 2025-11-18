@@ -1,54 +1,35 @@
-:root {
-  --scale: 1;                    /* change this to 0.8, 1.2, ... to shrink/enlarge everything */
-  --base-uhOh: 56px;             /* base size for small color buttons */
-  --base-gap: 10px;
-  --base-border: 2px;
-  --container-max: 500px;
-  --btn-justify: center;         /* /center /flex-start /flex-end /space-between etc */
-  --btn-align: flex-start;
-}
-
-body{
-  margin: 5px; 
-  background: #d9d9d9; 
-  overflow: hidden; 
-  display: block;
+body {
+  margin: 5px;
+  background: #d9d9d9;
+  min-height: 100vh;
+  overflow-x: auto; 
+  overflow-y: auto;
+  
+  display: flex;
+  flex-direction: column; 
   justify-content: center;
-  align-items: center;
-  height: 30vh;
-  overflow: auto;
-  white-space: nowrap;
-}
-
-#title, #coolered, #infos, h1 {
-	color: #3d382e;
-  text-align: center;
+  align-items: center;     
+  font-size: 14px; 
   font-family: monospace;
-}
-
-.parap {
-  color: #000000;
   text-align: center;
-  font-family: monospace;
-  margin: 3px;
 }
 
 button {
   background-color: white;
-  border-radius: calc(6px * var(--scale));
-  border-width: calc(var(--base-border) * var(--scale));
-  border-color: rgba(0,0,0,0.25);
+  border-radius: 10px; 
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.25);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: calc(12x * var(--scale)) auto;
-  padding: calc(10px * var(--scale)) calc(20px * var(--scale));
-  font-size: calc(16px * var(--scale));
+  margin: 12px auto;
+  padding: 10px 20px;
+  font-size: 16px; 
   cursor: pointer;
 }
 
 .diva {
-  margin-top: 80px;
+  margin-top: 80px; 
   text-align: center;
 }
 
@@ -56,41 +37,55 @@ button {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: min(100%, calc(700px * var(--scale)));
+  max-width: min(100%, 700px); 
   height: auto;
 }
 
 #coloredIDbuttons {
   display: flex;
   flex-wrap: wrap;
-  gap: calc(var(--base-gap) * var(--scale));
-  justify-content: var(--btn-justify);
-  align-items: var(--btn-align);
+  gap: 10px; 
+  justify-content: center;
+  align-items: flex-start;
 }
 .uhOh {
-  border-radius: calc(6px * var(--scale));
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
 }
 
 #cooldiv {
-  display: none; 
-  position: absolute;
-  top: 30%;
+  display: none;
+  position: fixed;
+  top: 50%; 
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
-  width: min(95vw, calc(var(--container-max) * var(--scale)));
+  width: min(95vw, 500px); 
   background-color: #d9d9d9;
-  border: calc(5px * var(--scale)) solid #3d382e;
-  border-radius: calc(10px * var(--scale));
-  padding: calc(10px * var(--scale));
+  border: 5px solid #3d382e;
+  border-radius: 10px;
+  padding: 10px;
   box-sizing: border-box;
 }
 
-#infos {
-  width: 100%;
-  margin-bottom: calc(8px * var(--scale));
-  font-size: calc(1rem * var(--scale));
+#theFstuff {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 450px 450px;
+  grid-template-rows: 300px 300px;
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.game {
+  width: 450px;
+  height: 300px;
+  border-radius: 10px;
+  box-sizing: border-box;
 }

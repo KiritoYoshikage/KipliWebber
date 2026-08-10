@@ -46,9 +46,9 @@ gameBtns.forEach((button) => {
   button.style.borderWidth = "4px";
 
   if (doesWhat === "revolvingAround") {
-    button.style.backgroundImage = "url('revAro.png')";
+    button.style.backgroundImage = "url('images/revAro.png')";
   } else {
-    button.style.backgroundImage = "url('lateron.png')";
+    button.style.backgroundImage = "url('images/redacted.png')";
   }
 
   button.addEventListener("click", (event) => {
